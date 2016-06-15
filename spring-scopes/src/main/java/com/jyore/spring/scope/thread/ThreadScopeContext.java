@@ -27,19 +27,16 @@ public class ThreadScopeContext implements ScopeContext {
 		this.name = Thread.currentThread().getName();
 	}
 	
-	@Override
 	public Object get() {
 		return name;
 	}
 
-	@Override
 	public void registerDestructionCallback(String name, Runnable callback) {
 		synchronized (this.destructionCallbacks) {
 			destructionCallbacks.put(DESTRUCTION_CB_PREFIX + name, callback);
 		}
 	}
 
-	@Override
 	public void executeDesctructionCallbacks() {
 		synchronized (this.destructionCallbacks) {
 			for(String cb : destructionCallbacks.keySet()) {

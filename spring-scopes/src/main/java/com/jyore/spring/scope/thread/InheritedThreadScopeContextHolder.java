@@ -28,7 +28,6 @@ public class InheritedThreadScopeContextHolder implements ScopeContextHolder {
 	}
 	
 	
-	@Override
 	public ScopeContext getContext() throws IllegalStateException {
 		ScopeContext ctx = holder.get();
 		
@@ -40,7 +39,6 @@ public class InheritedThreadScopeContextHolder implements ScopeContextHolder {
 		return ctx;
 	}
 
-	@Override
 	public void setContext(ScopeContext context) {
 		if(context == null) {
 			resetContext();
@@ -49,7 +47,6 @@ public class InheritedThreadScopeContextHolder implements ScopeContextHolder {
 		}
 	}
 
-	@Override
 	public void resetContext() {
 		holder.remove();
 	}

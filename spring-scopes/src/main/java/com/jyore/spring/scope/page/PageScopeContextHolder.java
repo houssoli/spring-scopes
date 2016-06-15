@@ -27,7 +27,6 @@ public class PageScopeContextHolder implements ScopeContextHolder {
 		return instance;
 	}
 	
-	@Override
 	public ScopeContext getContext() throws IllegalStateException {
 		PageScopeContext ctx = holder.get();
 		
@@ -38,7 +37,6 @@ public class PageScopeContextHolder implements ScopeContextHolder {
 		return ctx;
 	}
 
-	@Override
 	public void setContext(ScopeContext context) {
 		if(context == null) {
 			resetContext();
@@ -47,7 +45,6 @@ public class PageScopeContextHolder implements ScopeContextHolder {
 		}
 	}
 
-	@Override
 	public void resetContext() {
 		holder.remove();
 	}
